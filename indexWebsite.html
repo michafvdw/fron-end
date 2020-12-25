@@ -1,99 +1,134 @@
 <!-- Deze code is een testversie met de html, js en css code. Deze bevat geen php en is niet gelinkt aan de database -->
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Reserveren logopedie</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="http://localhost/prg02/CLE2/html_css_layout/layoutCss.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="example.css">
 
 </head>
 <body>
 
-<!-- header -->
 <div class="header">
-    <h2>Reserveren logopedie</h2>
+    <h1>Reserveren Logopedie afspraken</h1>
+    <!-- images below header -->
+    <section>
+        <img class="mySlides" src="https://www.logopedietoon.nl/content/Pagina%20headers/wat%20is%20logopedie.jpg" style="width:100%;height:200px;">
+        <img class="mySlides" src="https://www.malouavenhuis.nl/wp-content/uploads/Header21.jpg" style="width:100%;height:200px;">
+    </section>
 </div>
-
-<!-- images below header -->
-<section>
-    <img class="mySlides" src="https://www.logopedietoon.nl/content/Pagina%20headers/wat%20is%20logopedie.jpg" style="width:100%;height:200px;">
-    <img class="mySlides" src="https://www.malouavenhuis.nl/wp-content/uploads/Header21.jpg" style="width:100%;height:200px;">
-    <img class="mySlides" src="https://lh3.googleusercontent.com/proxy/23ablNmzSwf-ajvSFTHZXG8COd-DM54wsuGfRnraG7Rd4zVnx5gKvqcXdCbgkdRBNgV63v3umcR0dMVQ0NHsjrL1cXfaGxgG5CwKkzEu29lnplNaJc7kltQllDeahlcyaL7wR3atFG5wHZU" style="width:100%;height:200px;">
-</section>
-
-<!-- Submit reserveringen on event -->
-<script type="text/javascript" src="darkmode.js"></script>
-
-
-
-<!-- navigation bar -->
-<div class="sidenav">
-    <a href="index.php">Reserveren</a>
-    <a href="showData.php">Overzicht Reserveringen</a>
-    <a href="login.php">login</a>
-    <a href="about.html">Over ons</a>
-</div>
-
 <!-- Slide Show -->
-<script type="text/javascript" src="slideshow.js"></script>
+<script type="text/javascript" src="http://localhost/prg02/CLE2/html_css_layout/slideshow.js"></script>
 
 <!-- Submit reserveringen on event -->
-<script type="text/javascript" src="submitOnEvent.js"></script>
+<script type="text/javascript" src="localhost/prg02/CLE2/html_css_layout/submitOnEvent.js"></script>
 
-<!-- content website -->
-<div class="content">
-
-
-    <br>
-    <!-- formulier voor reserveringen -->
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="data-field">
-            <label for="nameTeacher">Naam docent:</label>
-            <input id="nameTeacher" type="text" name="nameTeacher" value="<?= isset($nameTeacher) ? htmlentities($nameTeacher) : '' ?>"/>
-            <span class="errors"><?= isset($errors['nameTeacher']) ? $errors['nameTeacher'] : '' ?></span>
-        </div>
-        <div class="data-field">
-            <label for="nameChild">Naam leerling</label>
-            <input id="nameChild" type="text" name="nameChild" value="<?= isset($nameChild) ? htmlentities($nameChild) : '' ?>"/>
-            <span class="errors"><?= isset($errors['nameChild']) ? $errors['nameChild'] : '' ?></span>
-        </div>
-        <div class="data-field">
-            <label for="email">Email:</label>
-            <input id="email" type="text" name="email" value="<?= isset($email) ? htmlentities($email) : '' ?>"/>
-            <span class="errors"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
-        </div>
-        <div class="data-field">
-            <label for="ageYear">Leeftijd van de leerling in jaren:</label>
-            <input id="ageYear" type="number" name="ageYear" value="<?= isset($ageYear) ? htmlentities($ageYear) : '' ?>"/>
-            <span class="errors"><?= isset($errors['ageYear']) ? $errors['ageYear'] : '' ?></span>
-            <label for="ageMonth">en in maanden:</label>
-            <input id="ageMonth" type="number" name="ageMonth" value="<?= isset($ageMonth) ? htmlentities($ageMonth) : '' ?>"/>
-            <span class="errors"><?= isset($errors['ageMonth']) ? $errors['ageMonth'] : '' ?></span>
-        </div>
-        <div class="data-field">
-            <label for="date">Datum:</label>
-            <input id="date" type="date" name="date" value="<?= isset($date) ? htmlentities($date) : '' ?>"/>
-            <span class="errors"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
-        </div>
-        <div class="data-field">
-            <label for="comment">Extra toevoeging (optioneel):</label>
-            <input id="comment" type="text" name="comment" value="<?= isset($comment) ? htmlentities($comment) : '' ?>"/>
-        </div>
-        <div class="data-submit">
-            <input onclick="submitEvent()" type="submit" name="submit" value="Reservering plaatsen"/>
-        </div>
-    </form> </div>
-
-
-
-<!-- show geplaatste reserveringen -->
-<div>
-    <a href="showData.php">Go back to the list</a>
+<!-- top navigation bar -->
+<div class="topnav">
+    <a href="index.php">Reserveren</a>
+    <a href="login.php">Login (admin only)</a>
+    <a href="logout.php">uitloggen</a>
+    <a href="showData.php">Overzicht database</a>
 </div>
 
+<!-- content linkse column -->
+<div class="row">
+    <div class="leftcolumn">
+        <div class="content">
+            <h2>Plaats uw reservering</h2>
+
+            <!-- formulier reserveren -->
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="fcf-form-group">
+                    <label for="nameTeacher" class="fcf-label">Naam docent:</label>
+                    <input id="nameTeacher" class="fcf-form-control" type="text" name="nameTeacher" value="<?= isset($nameTeacher) ? htmlentities($nameTeacher) : '' ?>"/>
+                    <span class="errors"><?= isset($errors['nameTeacher']) ? $errors['nameTeacher'] : '' ?></span>
+                </div>
+                <div class="fcf-form-group">
+                    <label for="nameChild" class="fcf-label">Naam leerling</label>
+                    <input id="nameChild" class="fcf-form-control" type="text" name="nameChild" value="<?= isset($nameChild) ? htmlentities($nameChild) : '' ?>"/>
+                    <span class="errors"><?= isset($errors['nameChild']) ? $errors['nameChild'] : '' ?></span>
+                </div>
+                <div class="fcf-form-group">
+                    <label for="email" class="fcf-label">Email:</label>
+                    <input id="email" class="fcf-form-control" type="text" name="email" value="<?= isset($email) ? htmlentities($email) : '' ?>"/>
+                    <span class="errors"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                </div>
+                <div class="fcf-form-group">
+                    <label for="ageYear" class="fcf-label">Leeftijd van de leerling in jaren:</label>
+                    <input id="ageYear" class="fcf-form-control" type="number" name="ageYear" value="<?= isset($ageYear) ? htmlentities($ageYear) : '' ?>"/>
+                    <span class="errors"><?= isset($errors['ageYear']) ? $errors['ageYear'] : '' ?></span>
+                    <label for="ageMonth">en in maanden:</label>
+                    <input id="ageMonth" class="fcf-form-control" type="number" name="ageMonth" value="<?= isset($ageMonth) ? htmlentities($ageMonth) : '' ?>"/>
+                    <span class="errors"><?= isset($errors['ageMonth']) ? $errors['ageMonth'] : '' ?></span>
+                </div>
+                <div class="fcf-form-group">
+                    <label for="date" class="fcf-label">Datum:</label>
+                    <input id="date" class="fcf-form-control" type="date" name="date" value="<?= isset($date) ? htmlentities($date) : '' ?>"/>
+                    <span class="errors"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
+                </div>
+                <div class="fcf-form-group">
+                    <label for="comment"  class="fcf-label">Extra toevoeging (optioneel):</label>
+                    <input id="comment" class="fcf-form-control" type="text" name="comment" value="<?= isset($comment) ? htmlentities($comment) : '' ?>"/>
+                </div>
+                <div class="data-submit">
+                    <input type="submit" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block" name="submit" value="Reservering plaatsen"/>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- content rechtste column -->
+    <div class="rightcolumn">
+        <div class="content">
+            <h2>Over mij</h2>
+            <p>Mijn naam is Marianne Prooij. Ik ben een logopediste in opleiding, werkzaam op een basisschool.
+            Via deze website kunt u contact opnemen met mij en reserveringen plaatsen voor uw leerlingen.</p>
+        </div>
+        <div class="content">
+            <h3>Vragen? Stuur mij gerust een email</h3>
+
+            <!-- email sturen form -->
+
+            <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
+
+                <div class="fcf-form-group">
+                    <label for="Name" class="fcf-label">Your name</label>
+                    <div class="fcf-input-group">
+                        <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+                    </div>
+                </div>
+
+                <div class="fcf-form-group">
+                    <label for="Email" class="fcf-label">Your email address</label>
+                    <div class="fcf-input-group">
+                        <input type="email" id="Email" name="Email" class="fcf-form-control" required>
+                    </div>
+                </div>
+
+                <div class="fcf-form-group">
+                    <label for="Message" class="fcf-label">Your message</label>
+                    <div class="fcf-input-group">
+                        <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
+                    </div>
+                </div>
+
+                <div class="fcf-form-group">
+                    <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
 <div class="footer">
-    <p>Website gemaakt door Micha van der Willigen voor Marianne Prooij</p>
+    <h2>Website gemaakt door Micha van der Willigen</h2>
 </div>
+
 </body>
 </html>
