@@ -1,0 +1,65 @@
+
+body {
+    display: grid;
+    background: green;
+    grid-template-areas:
+    "header header"
+    "nav article"
+    "ads article"
+    "ads footer";
+    grid-template-rows: 80px 1fr 120px 70px;
+    grid-template-columns: 20% 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    height: 100vh;
+    margin: 0;
+}
+header, footer, article, nav, div {
+    padding: 1.2em;
+}
+#pageHeader {
+    grid-area: header;
+    background: yellowgreen;
+}
+#pageFooter {
+    grid-area: footer;
+    background: yellowgreen;
+}
+#mainArticle {
+    grid-area: article;
+    background: limegreen;
+}
+#mainNav {
+    grid-area: nav;
+    background: limegreen;
+}
+#mainNav a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+#mainNav a:hover {
+    background-color: green;
+    color: black;
+}
+#siteAds {
+    grid-area: ads;
+    background: limegreen;
+}
+/* Stack the layout on small devices/viewports. */
+@media all and (max-width: 575px) {
+    body {
+        grid-template-areas:
+      "header"
+      "article"
+      "ads"
+      "nav"
+      "footer";
+        grid-template-rows: 80px 1fr 70px 1fr 70px;
+        grid-template-columns: 1fr;
+    }
+}
