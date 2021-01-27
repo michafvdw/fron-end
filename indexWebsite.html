@@ -1,16 +1,15 @@
 <!-- Deze code is een testversie met de html, js en css code. Deze bevat geen php en is niet gelinkt aan de database -->
-
 <!doctype html>
 <html lang="en">
 <head>
     <title>Reserveren Logopedie</title>
     <meta charset="utf-8"/>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="layout.css"/>
 </head>
 
 <body>
-<div class="wrapper">
+<wrapper>
     <header>
         <h1>Reserveren Logopedie afspraken</h1>
         <!-- images below header -->
@@ -27,7 +26,7 @@
         <a href="showData.php">Overzicht database</a>
     </nav>
 
-    <article class="main">
+    <main>
         <h2>Plaats uw reservering</h2>
 
         <!-- formulier reserveren -->
@@ -68,14 +67,14 @@
                 <input type="submit" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block" name="submit" value="Reservering plaatsen"/>
             </div>
         </form>
-    </article>
+    </main>
 
-    <aside class="aside aside-1"><h2>Over Marianne</h2>
+    <aside-1><h2>Over Marianne</h2>
         <p>Mijn naam is Marianne Prooij. Ik ben een logopediste in opleiding, werkzaam op een basisschool.
             Via deze website kunt u contact opnemen met mij en reserveringen plaatsen voor uw leerlingen.</p>
-    </aside>
+    </aside-1>
 
-    <aside class="aside aside-2"><h2>Contact form</h2>
+    <aside-2><h2>Contact form</h2>
         <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process2.php">
 
             <div class="fcf-form-group">
@@ -104,7 +103,7 @@
             </div>
 
         </form>
-    </aside>
+    </aside-2>
 
     <footer><h3>Website gemaakt door Micha van der Willigen voor Marianne Prooij</h3></footer>
 
@@ -114,6 +113,6 @@
     <!-- Submit reserveringen on event -->
     <script type="text/javascript" src="localhost/prg02/CLE2/html_css_layout/submitOnEvent.js"></script>
 
-</div>
+</wrapper>
 </body>
 </html>
