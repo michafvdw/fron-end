@@ -1,10 +1,11 @@
-.wrapper {
+wrapper {
     display: flex;
     flex-flow: row wrap;
     text-align: center;
+
 }
 
-.wrapper > * {
+wrapper > * {
     padding: 10px;
     flex: 1 100%;
 }
@@ -39,28 +40,30 @@ footer {
     background: #4BB7CA;
 }
 
-.main {
+main {
     text-align: left;
     background: #B8DCE3;
 }
 
-.aside-1 {
+aside-1 {
     background: #B8DCE3;
 }
 
-.aside-2 {
+aside-2 {
     background: #B8DCE3;
 }
+
 
 @media all and (min-width: 600px) {
-    .aside { flex: 1 0 0; }
+    aside-1 { flex: 1 0 0; }
+    aside-2 { flex: 1 0 0; }
 }
 
 @media all and (min-width: 800px) {
-    .main    { flex: 3 0px; }
-    .aside-1 { order: 1; }
-    .main    { order: 2; }
-    .aside-2 { order: 3; }
+    main    { flex: 3 0px; }
+    aside-1 { order: 1; }
+    main    { order: 2; }
+    aside-2 { order: 3; }
     footer  { order: 4; }
 }
 
@@ -86,7 +89,9 @@ footer {
     }
 }
 
+
 body {
+
     margin: 0;
 }
 
@@ -111,11 +116,11 @@ body {
     max-width: 100%;
 }
 
-.fcf-form-group {
+fcf-form-group {
     margin-bottom: 1rem;
 }
 
-.fcf-input-group {
+fcf-input-group {
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -126,7 +131,7 @@ body {
     width: 100%;
 }
 
-.fcf-form-control {
+fcf-form-control {
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
@@ -143,7 +148,7 @@ body {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.fcf-form-control:focus {
+fcf-form-control:focus {
     border: 1px solid #313131;
 }
 
@@ -162,7 +167,7 @@ label.fcf-label {
 }
 
 
-.fcf-btn {
+fcf-btn {
     display: inline-block;
     font-weight: 400;
     color: #212529;
@@ -188,47 +193,47 @@ label.fcf-label {
     }
 }
 
-.fcf-btn:hover {
+fcf-btn:hover {
     color: #212529;
     text-decoration: none;
 }
 
-.fcf-btn:focus, .fcf-btn.focus {
+fcf-btn:focus, .fcf-btn.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.fcf-btn-primary {
+fcf-btn-primary {
     color: #fff;
     background-color: #00D5FF;
 }
 
-.fcf-btn-primary:hover {
+fcf-btn-primary:hover {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
 }
 
-.fcf-btn-primary:focus, .fcf-btn-primary.focus {
+fcf-btn-primary:focus, .fcf-btn-primary.focus {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
-.fcf-btn-lg, .fcf-btn-group-lg>.fcf-btn {
+fcf-btn-lg, .fcf-btn-group-lg>.fcf-btn {
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
     line-height: 1.5;
     border-radius: 0.3rem;
 }
 
-.fcf-btn-block {
+fcf-btn-block {
     display: block;
     width: 100%;
 }
 
-.fcf-btn-block+.fcf-btn-block {
+fcf-btn-block+.fcf-btn-block {
     margin-top: 0.5rem;
 }
 
